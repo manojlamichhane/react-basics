@@ -1,0 +1,9 @@
+.posts {
+    padding: 30px 30px;
+}
+.spinner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:500px;
+}
