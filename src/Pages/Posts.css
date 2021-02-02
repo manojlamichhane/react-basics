@@ -1,9 +1,26 @@
-.posts {
+.container {
     padding: 30px 30px;
+    align-items: center;
 }
 .spinner{
     display: flex;
     align-items: center;
     justify-content: center;
     height:500px;
+}
+.object {
+    width: 10px;
+    height: 10px;
+}
+.division {
+    margin: 20px 0px
+}
+.image {
+    width:350px;
+    height:350px;
+    display: flex;    
+}
+.form {
+    
+    align-items: center;
 }

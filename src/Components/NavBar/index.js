@@ -29,7 +29,7 @@ class NavBar extends Component {
     <div>
       <Navbar color="light" light expand="md">
         <div className="container">
-        <NavbarBrand href="/">React Basics</NavbarBrand>
+        <Link to="/" ><NavbarBrand href="/">React Basics</NavbarBrand></Link>
           <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="mr-auto" navbar>

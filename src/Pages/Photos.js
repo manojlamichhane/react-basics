@@ -1,31 +1,32 @@
 import React, { Component } from 'react';
-import {Card,CardImg,CardBody,CardTitle,CardText,Spinner} from 'reactstrap'
+import {Card,CardBody,CardImg,CardTitle,Spinner} from 'reactstrap'
 import axios from 'axios'
 import './Posts.css'
 import {Link} from 'react-router-dom'
 
-class Albums extends Component {
+class Photos extends Component {
     state = {
-        albums:[],
-        isloading:false
+        photos:[],
+        isLoading:false
     }
     componentDidMount = () =>{
         this.setState({
-            ...this.state,
-            isloading:true
+            isLoading:true
         })
-        axios.get("https://jsonplaceholder.typicode.com/albums")
+        axios.get("https://jsonplaceholder.typicode.com/photos")
              .then((res)=>{
+                 console.log(res.data)
                  this.setState({
                      ...this.state,
-                     albums:res.data,
-                     isloading:false
+                     photos:res.data,
+                     isLoading:false
                  })
              })
              .catch((err)=>{
-                 this.setState({
-                     isloading:false
-                 })
+                console.log(err)
+                this.setState({
+                    isLoading:false
+                })
                 })
     }
     render() {
@@ -38,26 +39,26 @@ class Albums extends Component {
         }
         return (
             <div className="container">
-            <h1>Albums</h1>
-            {
-            this.state.albums.map((album)=>{
-                return(
-                    <div className="division">
-                    <Link to="/photos">
+               <h1>Photos</h1>
+                {
+                this.state.photos.map((photo)=>{
+                    return(
+                    <div className="photo">
+                    <Link to={`/photos/${photo.id}`}>
                     <Card>
-                    <CardImg   src="" alt={album.albumId} />
+                    <CardImg src="" alt={photo.id} />
                     <CardBody>
-                    <CardTitle tag="h5">{album.title}</CardTitle>    
+                    <CardTitle tag="h5">{photo.title}</CardTitle>
                     </CardBody>
                     </Card>
                     </Link>
                     </div>
                     )
-                })
-            }
+                    })
+                }
             </div>
         );
     }
 }
 
-export default Albums;
+export default Photos;

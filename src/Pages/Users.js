@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {
-    Card, CardText, CardBody, Media,
-    CardTitle, CardFooter, CardSubtitle, Button, Spinner, Progress
+    Card, CardBody, Media,
+    CardFooter, CardSubtitle, Spinner
   } from 'reactstrap';
 import './Posts.css'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 class Users extends Component {
     
@@ -47,11 +48,13 @@ class Users extends Component {
             </div>)
             }
         return (
-        <div>
+        <div className="container">
+         <h1>Users</h1>   
         {
         this.state.users.map((user)=>{
         return(    
-        <div className="posts">
+        <div className="division">
+        <Link to={`/users/${user.id}`}>
         <Card key={user.id}>
         <CardBody>
             <Media>
@@ -68,6 +71,7 @@ class Users extends Component {
             <CardSubtitle> Created By : {user.name} </CardSubtitle>
         </CardFooter>
         </Card>
+        </Link>
         </div>
         )
         })
